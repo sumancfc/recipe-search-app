@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs",
+    "lib": ["dom", "dom.iterable", "esnext"], // Include DOM types and ESNext features
+    "allowJs": true, // Allows JavaScript files to be compiled
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "jsx": "react-jsx", // Use the new JSX transform in React 17+
+    "moduleResolution": "node", // Use Node.js module resolution strategy
+    "resolveJsonModule": true, // Allow importing JSON files
+    "isolatedModules": true, // Ensure each file is treated as a separate module
+    "noEmit": true, // Do not emit output files
+    "incremental": true // Enable incremental compilation
+  },
+  "include": ["src"], // Include all files in the src directory
+  "exclude": ["node_modules", "build"] // Exclude node_modules and build directories
+}
