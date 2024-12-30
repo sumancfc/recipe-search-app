@@ -1,6 +1,6 @@
 import { useState, useEffect, ChangeEvent, FormEvent } from "react";
-import Form from "./Form";
-import Recipe from "./Recipe";
+import Form from "./components/Form";
+import Recipe from "./components/Recipe";
 import "./App.css";
 
 interface RecipeData {
