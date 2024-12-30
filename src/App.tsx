@@ -1,15 +1,26 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import Form from "./Form";
 import Recipe from "./Recipe";
 import "./App.css";
+
+interface RecipeData {
+  recipe: {
+    label: string;
+    calories: number;
+    image: string;
+    ingredients: {
+      text: string;
+    }[];
+  };
+}
 
 function App() {
   const appID = process.env.REACT_APP_API_ID;
   const appKey = process.env.REACT_APP_API_KEY;
 
-  const [recipes, setRecipes] = useState([]);
-  const [text, setText] = useState("");
-  const [query, setQuery] = useState("chcicken");
+  const [recipes, setRecipes] = useState<RecipeData[]>([]);
+  const [text, setText] = useState<string>("");
+  const [query, setQuery] = useState<string>("chicken");
 
   useEffect(() => {
     const getTheRecipe = async () => {
@@ -21,14 +32,13 @@ function App() {
       setRecipes(data.hits);
     };
     getTheRecipe();
-  }, [query]);
+  }, [query, appID, appKey]);
 
-  const updateSearch = (e) => {
+  const updateSearch = (e: ChangeEvent<HTMLInputElement>): void => {
     setText(e.target.value);
-    // console.log(text);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     setQuery(text);
     setText("");

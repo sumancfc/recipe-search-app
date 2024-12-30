@@ -1,6 +1,20 @@
-import React from 'react';
+import React from "react";
 
-const Recipe = ({ title, calories, image, ingredients }) => {
+interface RecipeProps {
+  title: string;
+  calories: number;
+  image: string;
+  ingredients: {
+    text: string;
+  }[];
+}
+
+const Recipe: React.FC<RecipeProps> = ({
+  title,
+  calories,
+  image,
+  ingredients,
+}) => {
   return (
     <div className='Recipe'>
       <h1 className='title'>{title}</h1>
