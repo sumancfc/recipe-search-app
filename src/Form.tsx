@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { ChangeEvent, FormEvent } from "react";
 
-const Form = ({ text, updateSearch, handleSubmit }) => {
+interface FormProps {
+  text: string;
+  updateSearch: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
+}
+
+const Form: React.FC<FormProps> = ({ text, updateSearch, handleSubmit }) => {
   return (
     <div>
       <form onSubmit={handleSubmit} className='search-form'>
